@@ -1,10 +1,9 @@
 import '../styles/Cards.css';
 import getChampions, { champions } from '../assets/champions-images';
 import { useEffect, useState } from 'react';
+import Card from './Card';
 
-const Cards = (props) => {
-  const [championsState, setChampionsState] = useState(champions);
-
+const CardContainer = () => {
   const [imgs, setImgs] = useState([]);
 
   const getImage = async (champion) => {
@@ -18,33 +17,35 @@ const Cards = (props) => {
     champions.map((champion) => {
       return getImage(champion);
     });
-
     return () => {
       setImgs([]);
     };
   }, []);
 
-  const handleCardClick = () => {
-    setChampionsState((prevState) => {
-      return shuffle(prevState);
+  useEffect(() => {
+    setImgs((prevState) => {
+      return [...shuffle(prevState)];
     });
+  }, []);
+
+  const handleCardClick = (e) => {
+    if (!e.target.parentElement.classList.contains('clicked')) {
+      setImgs((prevState) => {
+        return [...shuffle(prevState)];
+      });
+    }
   };
 
   return (
     <div className="cards-container">
       {imgs.map((champ) => {
-        return (
-          <div key={champ.champion} className="card" onClick={handleCardClick}>
-            <img className="champion-img" src={champ.championImg} alt={`League of Legends champion  ${champ.champion}`}></img>
-            <div className="champion-name">{champ.champion}</div>
-          </div>
-        );
+        return <Card champion={champ.champion} championImg={champ.championImg} handleCardClick={handleCardClick} />;
       })}
     </div>
   );
 };
 
-export default Cards;
+export default CardContainer;
 
 //Shuffles the array so every time the user click an image it re-arranges the items displayed in a random order
 

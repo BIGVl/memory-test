@@ -11,6 +11,7 @@ export default async function getChampions(champion) {
   }
 }
 
+//List on LoL champions images to be displayed as clickable cards
 const champions = [
   'Aatrox',
   'Darius',
