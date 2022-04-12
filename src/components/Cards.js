@@ -1,29 +1,60 @@
 import '../styles/Cards.css';
-import getChampions from '../assets/champions-images';
+import getChampions, { champions } from '../assets/champions-images';
 import { useEffect, useState } from 'react';
 
 const Cards = (props) => {
-  const [img, setImg] = useState('');
+  const [championsState, setChampionsState] = useState(champions);
 
-  const getImage = async () => {
-    const champion = await getChampions();
-    setImg(champion);
+  const [imgs, setImgs] = useState([]);
+
+  const getImage = async (champion) => {
+    const championImg = await getChampions(champion);
+    setImgs((prevState) => {
+      return [...prevState, { championImg, champion }];
+    });
   };
 
   useEffect(() => {
-    getImage();
+    champions.map((champion) => {
+      return getImage(champion);
+    });
+
+    return () => {
+      setImgs([]);
+    };
   }, []);
 
+  const handleCardClick = () => {
+    setChampionsState((prevState) => {
+      return shuffle(prevState);
+    });
+  };
+
   return (
-    <div>
-      <img src={img} alt="" />
+    <div className="cards-container">
+      {imgs.map((champ) => {
+        return (
+          <div key={champ.champion} className="card" onClick={handleCardClick}>
+            <img className="champion-img" src={champ.championImg} alt={`League of Legends champion  ${champ.champion}`}></img>
+            <div className="champion-name">{champ.champion}</div>
+          </div>
+        );
+      })}
     </div>
   );
 };
 
 export default Cards;
 
-/**Create an array that will contain all the champions names and loop through the array to create a card for each champion by calling the getChampion
- * and create a card component that will contain all the data and the values values that each card will need or maybe just a html tag, see for yourself
- *
- */
+//Shuffles the array so every time the user click an image it re-arranges the items displayed in a random order
+
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const random = Math.floor(Math.random() * (i + 1));
+    const temp = array[i];
+    array[i] = array[random];
+    array[random] = temp;
+  }
+
+  return array;
+}

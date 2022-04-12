@@ -1,0 +1,14 @@
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90vw;
+}
+
+
+
+.champion-img {
+    height: 30vh;
+    border: 12px solid transparent;
+    border-image: url('../assets/champ-border.jpeg') 15 round;
+}

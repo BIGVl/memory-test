@@ -1,6 +1,7 @@
-export default async function getChampions() {
+//Fetches any image of a champion from League Of Legends
+export default async function getChampions(champion) {
   try {
-    const response = await fetch('http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_0.jpg');
+    const response = await fetch(`http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champion}_0.jpg`);
 
     const championBlob = await response.blob();
     const imgChampion = URL.createObjectURL(championBlob);
@@ -9,3 +10,27 @@ export default async function getChampions() {
     console.log(err);
   }
 }
+
+const champions = [
+  'Aatrox',
+  'Darius',
+  'Zed',
+  'Yone',
+  'Vi',
+  'Akali',
+  'Nami',
+  'Kayle',
+  'Katarina',
+  'Kayn',
+  'Jayce',
+  'Jax',
+  'Karma',
+  'Karthus',
+  'Kalista',
+  'LeeSin',
+  'Malphite',
+  'Malzahar',
+  'Qiyana',
+  'Renekton'
+];
+export { champions };
