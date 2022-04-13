@@ -1,6 +1,7 @@
 import './styles/App.css';
 import CardContaier from './components/CardContainer';
-import Score from './components/Score';
+
+import React from 'react';
 
 function App() {
   return (
