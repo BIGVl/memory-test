@@ -1,7 +1,7 @@
 //Fetches any image of a champion from League Of Legends
 export default async function getChampions(champion) {
   try {
-    const response = await fetch(`http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champion}_0.jpg`);
+    const response = await fetch(`https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champion}_0.jpg`);
 
     const championBlob = await response.blob();
     const imgChampion = URL.createObjectURL(championBlob);
