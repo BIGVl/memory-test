@@ -37,23 +37,31 @@ const CardContainer = () => {
   //Every time the users clicks a img we shuffle the order fo the cards we check if it was previously clicked
   //and if not we add to current score if it was we get the current score to 0.
   const handleCardClick = (e) => {
-    setImgs((prevState) => {
-      prevState.map((img) => {
-        if (e.target.parentElement.id === img.champion) {
-          if (img.isClicked === false) {
-            img.isClicked = true;
-            setScore((prevState) => {
-              return prevState + 1;
+    imgs.map((img) => {
+      if (e.target.parentElement.id === img.champion) {
+        if (img.isClicked === false) {
+          img.isClicked = true;
+          setScore((prevScore) => {
+            return prevScore + 1;
+          });
+        } else {
+          setImgs((prevState) => {
+            return prevState.map((img) => {
+              return { ...img, isClicked: false };
             });
-            if (score > bestScore) {
-              setBestScore(score);
-            }
-          } else {
-            setScore(0);
+          });
+
+          if (score >= bestScore) {
+            setBestScore(score);
           }
+          setScore(0);
         }
-      });
-      console.log(score, bestScore, prevState);
+      }
+    });
+
+    console.log(score, bestScore, imgs);
+
+    setImgs((prevState) => {
       return [...shuffle(prevState)];
     });
   };

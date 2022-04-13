@@ -2,3 +2,40 @@
     display: grid;
     justify-content: center;
 }
+
+.header {
+    
+    height: 4rem;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    color: gold;
+
+}
+
+.description {
+    font-size: 1.8rem;
+    color: gold;
+    padding-left: 2rem;
+}
+
+.score {
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+    font-size: 2rem;
+    color: gold;
+    padding-right: 30%;
+}
+
+footer {
+    
+    color: gold;
+    font-size: 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-top: 5%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}

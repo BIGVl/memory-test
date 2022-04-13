@@ -2,14 +2,49 @@
 .cards-container {
     display: flex;
     flex-wrap: wrap;
-    width: 90vw;
+    width: 99vw;
+    height: 70vh;
+    overflow: hidden;
+    gap: 1rem;
+    justify-content: center;
 }
 
 
+.card {
+    width: 9%;
+    height: 45%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: transparent;
+
+}
 
 .champion-img {
-    height: 30vh;
-    border: 12px solid transparent;
-    border-image: url('../assets/champ-border.jpeg') 15 round;
+    height: 80%;
+    width: 100%;
+    animation: appear 200ms ease-in;
 }
 
+@keyframes appear {
+
+    0% {
+        width: 0;
+        height: 0;
+    }
+
+    100% {
+        height: 80%;
+        width: 90%;
+    }
+}
+
+.champion-name {
+    height: 10%;
+    background: linear-gradient(0.2turn, #df87a6 50%, #f69d3c);
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: center;
+    color: gold;
+}
