@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/react-gh-pages/static/css/main.5273794c.css",
-    "main.js": "/react-gh-pages/static/js/main.b59f2994.js",
-    "static/js/787.79ba63c7.chunk.js": "/react-gh-pages/static/js/787.79ba63c7.chunk.js",
-    "static/media/background.png": "/react-gh-pages/static/media/background.9ff46f0ddcf529580b0d.png",
-    "index.html": "/react-gh-pages/index.html",
-    "main.5273794c.css.map": "/react-gh-pages/static/css/main.5273794c.css.map",
-    "main.b59f2994.js.map": "/react-gh-pages/static/js/main.b59f2994.js.map",
-    "787.79ba63c7.chunk.js.map": "/react-gh-pages/static/js/787.79ba63c7.chunk.js.map"
+    "main.css": "/memory-test/static/css/main.d23e966c.css",
+    "main.js": "/memory-test/static/js/main.3f0c1f1a.js",
+    "static/js/787.79ba63c7.chunk.js": "/memory-test/static/js/787.79ba63c7.chunk.js",
+    "static/media/background.png": "/memory-test/static/media/background.9ff46f0ddcf529580b0d.png",
+    "index.html": "/memory-test/index.html",
+    "main.d23e966c.css.map": "/memory-test/static/css/main.d23e966c.css.map",
+    "main.3f0c1f1a.js.map": "/memory-test/static/js/main.3f0c1f1a.js.map",
+    "787.79ba63c7.chunk.js.map": "/memory-test/static/js/787.79ba63c7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5273794c.css",
-    "static/js/main.b59f2994.js"
+    "static/css/main.d23e966c.css",
+    "static/js/main.3f0c1f1a.js"
   ]
 }
